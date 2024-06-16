@@ -155,24 +155,27 @@ body{
 .nav-item{
   font-family: 'Anton';
   font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
+  font-weight: 200;
+  font-size: 22px;
   line-height: 36px;
-  color: #FFFFFF !important;
+  color: #313131 !important;
   cursor: pointer;
   border-radius: 8px;
   border: 1px solid transparent;
 }
+.logo-icon{
+  height: 60px;
+}
 .nav-link{
-  color: #FFFFFF;
+  color: #313131;
   cursor: pointer;
 }
 .nav-link:hover{
-  color: #FFFFFF;
+  color: #043275;
 }
 .nav-item:hover{
-  color: #FFFFFF;
-  border: 1px solid #FFFFFF;
+  color: #043275;
+  border: 1px solid #043275;
 }
 @media (max-width: 800px) {
  .hero-heading{

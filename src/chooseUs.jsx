@@ -7,7 +7,7 @@ import icon3 from '../src/assets/icon-3.png'
 
 const ChooseUs = () => {
   return (
-    <div className='main-container p-0 m-0' id='insta'>
+    <div className='main-container p-0 m-0' id='choose'>
       <div className="row p-3 text-center">
         <h4 className='heading-text text-dark py-2 px-5 m-3 fw-bold animate__animated animate__fadeInLeft'>Why Choose Us</h4>
         <div className="row d-flex justify-content-center p-0 m-0">

@@ -4,7 +4,7 @@ import heroImage from '../src/assets/hero-image.png'
 
 const HeroSection = () => {
   return (
-    <div className='main-container p-0 m-0' id='HeroSection'>
+    <div className='main-container pt-5 pb-2 m-0' id='heroSection'>
     <div className='row p-3'>
       <div className='col-md-6 col-12 d-flex flex-column justify-content-center align-items-center  animate__animated animate__fadeInRight'>
         <div className='fw-bold fs-2 text-dark px-sm-5 px-3 m-2'>Top-notch Home Services at affordable Prices</div>

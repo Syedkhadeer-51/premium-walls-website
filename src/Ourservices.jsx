@@ -5,7 +5,7 @@ import skilledImage from '../src/assets/skilled-image.png'
 
 const OurServices = () => {
   return (
-    <div className='main-container p-0 m-0' id='About'>
+    <div className='main-container p-0 m-0' id='services'>
       <div className='row p-3'>
         <div className='col-md-6 col-12 image-section animate__animated animate__fadeInLeft d-flex align-items-center justify-content-center'>
           <div className='text-center p-3 m-2'>
