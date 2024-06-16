@@ -1,0 +1,222 @@
+:root {
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-family: 'Anton', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  overflow-x :hidden !important;
+}
+body{
+  background-color:#000000 !important;
+}
+
+.main-container{
+  background-color:#FFFFFF;
+  color:#FFFFFF;
+}
+.hero-section{
+  height: 100vh;
+  background-size: cover;
+  /* background-image: url('/src/assets/hero-bg.png'); */
+}
+.hero-heading{
+ font-family: 'Anton';
+ font-style: normal;
+ font-weight: 400;
+ font-size: 80px;
+ line-height: 115.54%;
+ color: #FFFFFF;
+}
+.trust-container{
+  background-color: #F6F6F6;
+}
+
+.choose-us-icons{
+  height: 35px;
+  width: 35px;
+}
+.achievments-container{
+ background: #043275;
+ color: #FFFFFF;
+}
+.acheivments-block{
+  background: #043275;
+  color: #FFFFFF;
+}
+.heading-text{
+  font-family: 'Anton', sans-serif;
+  font-size:40px;
+}
+.description-text{
+  font-family: 'Hind', sans-serif;
+  font-size:20px;
+}
+.primary-btn{
+  background-color:#735F32;
+  color:#FFFFFF;
+  font-family: 'Anton', sans-serif;
+  font-size:20px;
+}
+.package-card{
+  transition: all 0.2s ease-in-out;
+  border:1px solid #FFFFFF;
+  font-family: 'Hind', sans-serif;
+  font-size:22px; 
+  background-color:#000000;
+  border-radius:12px;
+}
+.sub-heading-split{
+  color:#735F32;
+}
+
+.package-card:hover{
+  transform: scale(1.1);
+  font-size:23px;
+  background-color:#735F32;
+  border-radius:12px;
+}
+.package-button{
+  background-color:transparent;
+  border-color:#FFFFFF;
+  border-radius:10px;
+  color:#FFFFFF;
+}
+.package-button:hover{
+  background-color:#735F32;
+  border-color:#FFFFFF;
+  color:#FFFFFF;
+}
+.package-price{
+  font-size:18px !important;
+}
+.trail-text{
+  font-size:18px !important;
+}
+.modal-content{
+  background-color: #000000 !important;
+}
+.modal-title{
+  font-family: 'Hind';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 64px;
+  color: #FFFFFF;
+}
+.action-info{
+  font-family: 'Anton', sans-serif;
+  color: #FFFFFF;
+  font-size: 30px;
+}
+.modal-header{
+  border: none !important;
+}
+.form-icons{
+  background-color: #735F32;
+}
+.play-button{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+.form-main-txt{
+ font-family: 'Hind';
+ font-style: normal;
+ font-weight: 700;
+ font-size: 40px;
+ line-height: 64px;
+}
+.form-control{
+  background: #262523 !important;
+  border-radius: 5px !important;
+  color: #FFFFFF;
+  font-family: 'Hind';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 29px;
+}
+.form-control:focus{
+  color: lightgray !important;
+}
+.form-header-text{
+  font-family: 'Hind';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFFFF;
+}
+.nav-item{
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  color: #FFFFFF !important;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+.nav-link{
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.nav-link:hover{
+  color: #FFFFFF;
+}
+.nav-item:hover{
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+}
+@media (max-width: 800px) {
+ .hero-heading{
+  font-size: 60px;
+  
+ }
+ .hero-section{
+  background-image: url('src/assets/bg-hero-mobile.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 75vh !important;
+ }
+}
+@media (max-width: 600px) {
+  .hero-heading{
+   font-size: 40px;
+  }
+  .hero-section{
+    background-image: url('src/assets/bg-hero-mobile.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 60vh !important;
+   }
+   .action-info{
+    font-size: 25px;
+  }
+  .nav-item{
+    font-size: 18px;
+  }
+ }
+ @media (max-width: 400px) {
+  .hero-section{
+    background-image: url('src/assets/bg-hero-mobile.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 45vh !important;
+   }
+   .action-info{
+    font-size: 22px;
+  }
+  .nav-item{
+    font-size: 14px;
+  }
+  .contact-img-column {
+    display: none !important;
+  }
+ }
