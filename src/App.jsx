@@ -8,18 +8,25 @@ import HeroSection from './HeroSection'
 import Actions from './Actions'
 import Navbar from './Navbar'
 import Acheivments from './Acheivments'
+import Testimonial from './Testimonial'
+import Partner from './partner'
+import Footer from './Footer'
 
 function App() {
 
 
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
     <HeroSection/>
     <Trust/>
     <OurServices/>
     <Acheivments/>
     <ChooseUs/>
+    <Testimonial/>
+    <Contact/>
+    <Partner/>
+    <Footer/>
     </>
   )
 }
