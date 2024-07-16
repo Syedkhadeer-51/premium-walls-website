@@ -9,7 +9,7 @@ import Actions from './Actions'
 import Navbar from './Navbar'
 import Acheivments from './Acheivments'
 import Testimonial from './Testimonial'
-import Partner from './partner'
+import Partner from './Partner'
 import Footer from './Footer'
 
 function App() {
