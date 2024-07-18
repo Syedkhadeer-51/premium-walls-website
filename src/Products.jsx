@@ -14,7 +14,7 @@ const Products = () => {
                             {/* <button type='button' className='view-more-btn'>View More</button> */}
                         </div>
                         <div className="text-center">
-                            Coming Soon...
+                            Coming Soon....
                         </div>
                     </div>
                 </div>
