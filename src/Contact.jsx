@@ -4,7 +4,7 @@ import contactImage from '../src/assets/contact-img.png'
 
 const Contact = () => {
     return (
-        <div className='main-container p-0 m-0' id='skilled-technician'>
+        <div className='main-container p-0 m-0' id='contactUs'>
             <div className='row py-5 d-flex align-items-center'>
                 <div className='col-md-6 col-12 image-section animate__animated animate__fadeInLeft d-flex align-items-center justify-content-center'>
                     <div className='text-center p-3 m-2'>
