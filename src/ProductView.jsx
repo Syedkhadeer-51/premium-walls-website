@@ -15,7 +15,7 @@ import unfurnishedApartmentSilverIcon from "../src/assets/unfurnishedApartmentSi
 import unfurnishedApartmentGoldIcon from "../src/assets/unfurnishedApartmentGoldIcon.png"
 import kitchenCleaningBanner from "../src/assets/kitchenCleaningBanner.png"
 import kitchenImg from "../src/assets/kitchenImg.png"
-import vacantKitchenCleaningIcon from "../src/assets/vacantKitchenCleaningIcon.png"
+import vacantKitchenCleaningIcon from "../src/assets/vacantkitchenCleaningIcon.png"
 import nonvacantKitchenCleaningIcon from "../src/assets/nonvacantKitchenCleaningIcon.png"
 import bathroomCleaningBanner from "../src/assets/bathroomCleaningBanner.png"
 import bathroomCleaningSilverIcon from "../src/assets/bathroomCleaningSilverIcon.png"
