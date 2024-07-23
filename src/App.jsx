@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import OurServices from './Ourservices';
 import './index.css';
 import Trust from './Trust';
-import ChooseUs from './ChooseUs';
+import ChooseUs from './chooseUs';
 import Contact from './Contact';
 import HeroSection from './HeroSection';
 import Navbar from './Navbar';
