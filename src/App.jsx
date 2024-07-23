@@ -1,34 +1,47 @@
-import OurServices from './Ourservices'
-import './index.css'
-import Trust from './Trust'
-import ChooseUs from './chooseUs'
-import Contact from './Contact'
-import HeroSection from './HeroSection'
-import Navbar from './Navbar'
-import Acheivments from './Acheivments'
-import Testimonial from './Testimonial'
-import Partner from './Partner'
-import Footer from './Footer'
-import Products from './Products'
+// src/App.jsx
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import OurServices from './Ourservices';
+import './index.css';
+import Trust from './Trust';
+import ChooseUs from './ChooseUs';
+import Contact from './Contact';
+import HeroSection from './HeroSection';
+import Navbar from './Navbar';
+import Acheivments from './Acheivments';
+import Testimonial from './Testimonial';
+import Partner from './Partner';
+import Footer from './Footer';
+import Products from './Products';
+import ProductView from './ProductView';
 
-function App() {
-
-
-  return (
-    <>
-    <Navbar/>
-    <HeroSection/>
-    <Products/>
-    <Trust/>
-    <OurServices/>
-    <Acheivments/>
-    <ChooseUs/>
-    <Testimonial/>
-    <Contact/>
-    <Partner/>
-    <Footer/>
-    </>
-  )
+function Home() {
+    return (
+        <>
+            <Navbar/>
+            <HeroSection/>
+            <Products/>
+            <Trust/>
+            <OurServices/>
+            <Acheivments/>
+            <ChooseUs/>
+            <Testimonial/>
+            <Contact/>
+            <Partner/>
+            <Footer/>
+        </>
+    );
 }
 
-export default App
+function App() {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/product/:id" element={<ProductView />} />
+            </Routes>
+        </Router>
+    );
+}
+
+export default App;

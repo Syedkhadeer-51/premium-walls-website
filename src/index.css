@@ -14,9 +14,12 @@ body{
   font-family: "DM Sans", sans-serif;
 }
 
-.main-container{
+.hero-section-container{
   background-color:#FFFFFF;
   color:#FFFFFF;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-top: 65px;
 }
 .hero-section{
   height: 100vh;
@@ -396,11 +399,159 @@ body{
   font-weight: 700;
   line-height: 150%;
 }
-.product-title{
+.product-container-title{
   color: var(--primary-black-313131, #313131);
   font-family: "DM Sans";
   font-size: 42px;
   font-style: normal;
   font-weight: 700;
   line-height: 150%; 
+}
+.product-container{
+  padding: 72px 100px;
+  background: #FFF;
+}
+.product-card{
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 20px 35px 70px 0px rgba(0, 0, 0, 0.04);
+  max-width: 300px;
+
+}
+.product-card-img{
+  height: 216px;
+  border-radius: 10px 10px 0px 0px;
+}
+.product-title{
+  color: #313131;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.product-description{
+  color: #828282;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; 
+}
+.product-book-txt{
+  color: #043275;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; 
+}
+.product-arrow-icon{
+  width: 20px;
+  height: 20px;
+}
+.product-view-header{
+  color: var(--Text-black-MHS, #1A1A1A);
+  font-family: "DM Sans";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.product-view-sub-text{
+  color: var(--Text-black-MHS, #1A1A1A);
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.product-view-banner{
+  width: 783px;
+  height: 451px;
+  border-radius: 20px;
+}
+.product-view-mini-container{
+  border-radius: 12px;
+  border: 1px solid #E3E3E3;
+}
+.product-mini-cart-img{
+  height: 108px;
+  width: 120px;
+  margin:16px
+}
+.product-view-mini-container{
+  height: 150px;
+  width: 308px;
+}
+.product-view-sub-header{
+  color: var(--Text-black-MHS, #1A1A1A);
+  font-family: "DM Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top:40px
+}
+.product-mini-card-container{
+  height: 298px;
+  width: 454px;
+  border-radius: 12px;
+  border: 1px solid #E3E3E3;
+  background: var(--White-MHS, #FFF);
+}
+.product-mini-card-img{
+  width: 454px;
+  height: 145px;
+}
+.product-mini-card-rating{
+ color: var(--Sub-heading-grey-text-MHS, #5F5F5F);
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+}
+.product-mini-book-btn{
+  width: 62px;
+  height: 30px;
+  padding: 3px 12px;
+  border-radius: 8px;
+  border: 3px solid var(--White-MHS, #FFF);
+  background: var(--Primary-MHS, #043275);
+  color: var(--White-MHS, #FFF);
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.product-mini-card-header{
+  color: var(--Text-black-MHS, #1A1A1A);
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  border-bottom: 1px solid #EDEDED;
+}
+.mini-card-offer-txt{
+  color: var(--Sub-heading-grey-text-MHS, #5F5F5F);
+  font-size: 12px;
+}
+.product-mini-card-description{
+  color: var(--Text-black-MHS, #1A1A1A);
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.product-star-icon{
+  width: 16px;
+  height: 16px;
+}
+.product-mini-star-icon{
+  width: 12px;
+  height: 12px;
 }
