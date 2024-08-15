@@ -25,13 +25,6 @@ import waterProofingIcon from "../src/assets/waterProofingIcon.png"
 import texturePaintingBanner from "../src/assets/texturePaintingBanner.png"
 import texturePaintingIcon from "../src/assets/texturePaintingIcon.png"
 import starIcon from "../src/assets/starIcon.png"
-
-
-
-
-
-
-
 import Footer from './Footer';
 
 const productData = [

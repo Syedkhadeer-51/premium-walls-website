@@ -171,6 +171,10 @@ body{
   border-radius: 24px;
   background: var(--white-ffffff, #FFF);  
 }
+.carousel-control-next, .carousel-control-prev {
+  opacity: 1 !important;
+
+}
 .client-testimonial-name{
   color: var(--primary-black-313131, #313131);
   font-family: "DM Sans";
@@ -360,16 +364,44 @@ body{
 .navbar-logo-icon{
   width: 140px;
 }
-.navbar{
-  border-bottom: 1px solid var(--border-ebebeb, #EBEBEB);
-  background: #FFF;
+.nav-link {
+  color: var(--primary-black-313131, #313131) !important;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; 
+  padding-left: 21px !important; 
+  padding-right: 21px !important; 
+  position: relative; 
 }
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  content: "";
+  display: block;
+  width: 25px; 
+  height: 4px; 
+  background-color: #043275 !important;
+  border-radius: 16px; 
+  position: absolute;
+  bottom: -4px;
+  left: 50%; 
+  transform: translateX(-50%); 
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #043275 !important;
+}
+
+
 .login-btn{
   border-radius: 16px;
   background: #043275;
   box-shadow: 0px 34px 34px 0px rgba(19, 83, 254, 0.05);
   width: 148px;
-  padding: 16px 32px;
+  padding: 12px 32px;
   color: var(--white-ffffff, #FFF);
   text-align: center;
   font-family: "DM Sans";
@@ -381,7 +413,6 @@ body{
 .login-btn:hover{
   color: #043275;
   background: transparent;
-  border: 1px solid #043275 ;
 }
 .nav-link{
   color: var(--primary-black-313131, #313131);  
@@ -430,6 +461,9 @@ body{
   font-weight: 700;
   line-height: 150%;
 }
+.disabled-product-coming-soon{
+  font-size: 14px;
+}
 .product-description{
   color: #828282;
   font-family: "DM Sans";
@@ -445,6 +479,10 @@ body{
   font-style: normal;
   font-weight: 400;
   line-height: 150%; 
+  text-decoration: none !important;
+}
+.product-book-btn a {
+  text-decoration: none;
 }
 .product-arrow-icon{
   width: 20px;
@@ -554,4 +592,25 @@ body{
 .product-mini-star-icon{
   width: 12px;
   height: 12px;
+}
+.product-view-more-btn{
+  background: transparent;
+  border: none;
+  color: #043275;
+  text-align: center;
+  font-feature-settings: 'liga' off, 'clig' off;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.rotate-180 {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+.disabled-card {
+  opacity: 0.5;
+  pointer-events: none; 
+  cursor: not-allowed;
 }

@@ -1,4 +1,4 @@
-// src/App.jsx
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import OurServices from './Ourservices';
@@ -14,6 +14,7 @@ import Partner from './Partner';
 import Footer from './Footer';
 import Products from './Products';
 import ProductView from './ProductView';
+import OtherproductView from './OtherProductView';
 
 function Home() {
     return (
@@ -39,6 +40,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/product/:id" element={<ProductView />} />
+                <Route path="/OtherproductView" element={<OtherproductView />} />
             </Routes>
         </Router>
     );
