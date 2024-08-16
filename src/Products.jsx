@@ -104,7 +104,7 @@ const Products = () => {
                 <div className='product-container-title py-2'>Other Services</div>
                 <div className='product-description py-2'>Discover our complete range of other services tailored to meet your need.</div>
             </div>
-            <div className="row d-flex justify-content-start pt-5 pb-3 disabled-card">
+            <div className="row d-flex justify-content-start pt-5 pb-3">
                 {otherServicesData.map(otherproduct => (
                     <OtherProductCard key={otherproduct.id} otherproduct={otherproduct} />
                 ))}

@@ -614,3 +614,113 @@ body{
   pointer-events: none; 
   cursor: not-allowed;
 }
+.travel-hub-icon{
+  width: 74px;
+  height: 74px;
+}
+.travel-hub-title{
+  color: var(--primary-black-313131, #313131);
+  text-align: center;
+  font-family: "DM Sans";
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 160%;
+}
+.Travel-hub-description{
+  color: var(--text-secondary-828282, #828282);
+  text-align: center;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; 
+}
+.travel-calling-icon{
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  background: #043275;
+  padding: 13px;
+}
+.travel-hub-text-1{
+  color: #828282;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 175% */
+  letter-spacing: -0.32px;
+}
+.travel-hub-text-2{
+  color: #313131;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px; /* 155.556% */
+  letter-spacing: -0.36px;
+}
+.travel-instagram-icon{
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  background: #043275;
+  padding: 14px;
+}
+.trip-card-img{
+  height: 216px;
+  align-self: stretch;
+  border-radius: 10px 10px 0px 0px;
+}
+.trip-title{
+  color: #313131;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; 
+}
+.trip-description{
+  color: var(--Text-black-MHS, #1A1A1A);
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 142.857% */
+  text-transform: capitalize;
+}
+.trip-btn{
+  color: var(--white-ffffff, #FFF);
+  text-align: center;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 24px */
+  border-radius: 8px;
+  background: #043275;
+  box-shadow: 0px 34px 34px 0px rgba(19, 83, 254, 0.05);
+  padding: 8px;
+}
+.trip-contact-btn{
+  color: #313131;
+  text-align: center;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; 
+  border-radius: 8px;
+  border: 1px solid #000;
+  box-shadow: 0px 34px 34px 0px rgba(19, 83, 254, 0.05);
+  padding: 8px;
+}
+.trip-card{
+  width: 304px;
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 20px 35px 70px 0px rgba(0, 0, 0, 0.04);
+}

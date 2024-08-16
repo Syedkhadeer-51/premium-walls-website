@@ -1,5 +1,6 @@
 // src/components/ProductView.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
+
 import { useParams } from 'react-router-dom';
 import paintingServiceBanner from '../src/assets/painting-service-banner.png'
 import interiorPainting from "../src/assets/interior-painting.png"
@@ -221,6 +222,11 @@ const productData = [
 const ProductView = () => {
     const { id } = useParams();
     const product = productData.find(p => p.id === parseInt(id));
+
+    useEffect(() => {
+        // Scroll to the top of the page when the component loads
+        window.scrollTo(0, 0);
+    }, []);
 
     if (!product) {
         return <div>Product not found</div>;
