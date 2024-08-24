@@ -362,7 +362,8 @@ body{
   position: relative;
 }
 .navbar-logo-icon{
-  width: 140px;
+  width: 195px;
+  height: 60px !important;
 }
 .nav-link {
   color: var(--primary-black-313131, #313131) !important;

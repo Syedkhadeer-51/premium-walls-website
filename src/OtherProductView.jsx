@@ -67,7 +67,7 @@ const OtherProductView = () => {
                                 </div>
                                 <div className="d-flex flex-column align-items-start">
                                     <div className="travel-hub-text-1">Phone Number</div>
-                                    <div className="travel-hub-text-2">+91-9640285295</div>
+                                    <div className="travel-hub-text-2">+91-7702285671</div>
                                 </div>
                             </div>
                         </div>
