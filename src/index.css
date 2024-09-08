@@ -533,7 +533,7 @@ body{
   margin-top:40px
 }
 .product-mini-card-container{
-  height: 298px;
+  /* height: 298px; */
   width: 454px;
   border-radius: 12px;
   border: 1px solid #E3E3E3;
@@ -724,4 +724,45 @@ body{
   border-radius: 10px;
   background: #FFF;
   box-shadow: 20px 35px 70px 0px rgba(0, 0, 0, 0.04);
+}
+.features-view-more-button{
+  color: var(--Primary-MHS, #043275);
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  text-transform: capitalize;
+  background: transparent;
+  border: none;
+}
+.included-features-details{
+  color: var(--Text-black-MHS, #1A1A1A);
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: bold;
+  font-weight: 600;
+  line-height: normal;
+}
+.detail-icon {
+  width: 18px; /* Adjust the size as needed */
+  height: 18px;
+  padding: 4px;
+  margin-right: 8px; /* Space between the icon and the text */
+  vertical-align: middle; /* Align the icon with the text */
+  border-radius: 72.727px;
+  background: var(--Positive-green, #3CAE5C);
+}
+.extra-details-custom-list{
+  list-style: none;
+  padding-left: 16px;
+}
+.detail-icon-excluded{
+  width: 18px; /* Adjust the size as needed */
+  height: 18px;
+  padding: 4px;
+  margin-right: 8px; /* Space between the icon and the text */
+  vertical-align: middle; /* Align the icon with the text */
+  border-radius: 72.727px;
+  background: red;
 }

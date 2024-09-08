@@ -26,6 +26,9 @@ import waterProofingIcon from "../src/assets/waterProofingIcon.png"
 import texturePaintingBanner from "../src/assets/texturePaintingBanner.png"
 import texturePaintingIcon from "../src/assets/texturePaintingIcon.png"
 import starIcon from "../src/assets/starIcon.png"
+import checkMark from "../src/assets/checkmark.png"
+import cancelMark from "../src/assets/cancel.png"
+
 import Footer from './Footer';
 
 const productData = [
@@ -84,6 +87,18 @@ const productData = [
                 features: [
                     "Wiping & mopping of floor & balcony, bathroom deep cleaning",
                     "Dry dusting of ceiling, walls & windows, dry vacuuming of furniture"
+                ],
+                extradetails: [
+                    "Bathroom deep cleaning",
+                    "Kitchen regular cleaning",
+                    "Living room & bedroom cleaning",
+                    "Floor Cleaning",
+                    "Hard to reach spots cleaning"
+                ],
+                extraDetailsExcluded :[
+                    "Cleaning of kitchen cabinet interiors appliances",
+                    "Removal of utensils/ objects and reorganisation",
+                    "Wet wiping of wall & ceiling"
                 ]
             }, {
                 productTitle: "Furnished apartment ( Gold )",
@@ -93,6 +108,18 @@ const productData = [
                 features: [
                     "Deep cleaning of bedroom, living room, bathroom, kitchen & balcony",
                     "Floor deep cleaning by single disc machine, vacuuming of sofa & carpets"
+                ],
+                extradetails: [
+                    "Bathroom deep cleaning",
+                    "Kitchen regular cleaning",
+                    "Living room & bedroom cleaning",
+                    "Floor Cleaning",
+                    "Hard to reach spots cleaning"
+                ],
+                extraDetailsExcluded :[
+                    "Cleaning of kitchen cabinet interiors appliances",
+                    "Removal of utensils/ objects and reorganisation",
+                    "Wet wiping of wall & ceiling"
                 ]
             }, {
                 productTitle: "UnFurnished apartment ( Silver )",
@@ -102,6 +129,18 @@ const productData = [
                 features: [
                     "Wiping & mopping of floor & balcony, bathroom deep cleaning",
                     "Dry dusting of ceiling, walls & windows"
+                ],
+                extradetails: [
+                    "Bathroom deep cleaning",
+                    "Kitchen regular cleaning",
+                    "Living room & bedroom cleaning",
+                    "Floor Cleaning",
+                    "Hard to reach spots cleaning"
+                ],
+                extraDetailsExcluded :[
+                    "Cleaning of kitchen cabinet interiors appliances",
+                    "Removal of utensils/ objects and reorganisation",
+                    "Wet wiping of wall & ceiling"
                 ]
             }, {
                 productTitle: "UnFurnished apartment ( Gold )",
@@ -111,6 +150,16 @@ const productData = [
                 features: [
                     "Wiping & mopping of floor & balcony, bathroom deep cleaning",
                     "Dry dusting of ceiling, walls & windows"
+                ],
+                extradetails: [
+                    "Bathroom deep cleaning",
+                    "Kitchen regular cleaning",
+                    "Living room & bedroom cleaning",
+                ],
+                extraDetailsExcluded :[
+                    "Cleaning of kitchen cabinet interiors appliances",
+                    "Removal of utensils/ objects and reorganisation",
+                    "Wet wiping of wall & ceiling"
                 ]
 
             }
@@ -134,6 +183,15 @@ const productData = [
                 features: [
                     "Oil & grease stain removal from walls, slabs, cabinets, stove, sink etc",
                     "Cabinets cleaned inside. Removal & placing back items not included",
+                ],
+                extradetails: [
+                    "Cleaning of all areas & surfaces",
+                    "Superior stain removal",
+                    "Removal of dust from modular",
+                ],
+                extraDetailsExcluded :[
+                    "Removal of utensils and placing back",
+                    "Chimney and appliance cleaning depends on your selection",
                 ]
             },
             {
@@ -145,6 +203,15 @@ const productData = [
                 features: [
                     "Oil & grease stain removal from walls, slabs, cabinets, stove, sink etc",
                     "Cabinets cleaned inside. Removal & placing back items not included",
+                ],
+                extradetails: [
+                    "Cleaning of all areas & surfaces",
+                    "Superior stain removal",
+                    "Removal of dust from modular",
+                ],
+                extraDetailsExcluded :[
+                    "Removal of utensils and placing back",
+                    "Chimney and appliance cleaning depends on your selection",
                 ]
             }
         ]
@@ -164,7 +231,19 @@ const productData = [
                 features: [
                     "Dirt & black stain removal from toilet pot, tiles, floor, basin, exhaust, etc.",
                     "Book this service every month for a clean, spotless & hygienic bathroom",
+                ],
+                extradetails: [
+                    "Objects removal before cleaning",
+                    "Superior stain removal",
+                    "Cleaning of all areas & surfaces",
+                    "Cleaning of hard to reach spots",
+                    "Floor deep cleaning & finishing touch"
+                ],
+                extraDetailsExcluded :[
+                    "Objects removal before cleaning",
+                    "Wet wiping of wall & ceiling",
                 ]
+
             },
             {
                 productTitle: "Bathroom cleaning ( Gold )",
@@ -175,6 +254,17 @@ const productData = [
                 features: [
                     "Hard water stains & dirt in tile grouting removal with scrubbing machine",
                     "Intense cleaning of toilet pot, tiles, floor, basin, exhaust, etc.",
+                ],
+                extradetails: [
+                    "Objects removal before cleaning",
+                    "Superior stain removal",
+                    "Cleaning of all areas & surfaces",
+                    "Cleaning of hard to reach spots",
+                    "Floor deep cleaning & finishing touch"
+                ],
+                extraDetailsExcluded :[
+                    "Objects removal before cleaning",
+                    "Wet wiping of wall & ceiling",
                 ]
             }
         ]
@@ -273,7 +363,39 @@ const ProductView = () => {
                                                 <li key={idx} className='product-mini-card-description py-1'>{feature}</li>
                                             ))}
                                         </ul>
+                                        {miniCard.extradetails && miniCard.extradetails.length > 0 && (
+                                            <div className="extra-details-container">
+                                                <div className="mini-card-features collapse" id={`collapseExample-${index}`}>
+                                                    <div className="included-features-details px-3">Included</div>
+                                                    <ul className='extra-details-custom-list my-3'>
+                                                        {miniCard.extradetails.map((detail, idx) => (
+                                                            <li key={idx} className='product-mini-card-description my-1'>
+                                                                 <img src={checkMark} alt="icon" className='detail-icon' /> {detail}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                    <div className="included-features-details px-3">Excluded</div>
+                                                    <ul className='extra-details-custom-list my-3'>
+                                                        {miniCard.extraDetailsExcluded.map((detail, idx) => (
+                                                            <li key={idx} className='product-mini-card-description my-1'>
+                                                                 <img src={cancelMark} alt="icon" className='detail-icon-excluded' /> {detail}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                                <button className='features-view-more-button mb-2 mx-2' type='button'
+                                                    data-bs-toggle="collapse"
+                                                    data-bs-target={`#collapseExample-${index}`}
+                                                    aria-expanded="false"
+                                                    aria-controls={`collapseExample-${index}`}>
+                                                    View Details
+                                                </button>
+                                            </div>
+                                        )}
+
+
                                     </div>
+
                                 </div>
                             </div>
                         ))}
