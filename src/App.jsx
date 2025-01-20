@@ -15,6 +15,7 @@ import Footer from './Footer';
 import Products from './Products';
 import ProductView from './ProductView';
 import OtherproductView from './OtherProductView';
+import TermsAndConditions from './TermsAndConditions';
 
 function Home() {
     return (
@@ -41,6 +42,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/product/:id" element={<ProductView />} />
                 <Route path="/OtherproductView" element={<OtherproductView />} />
+                <Route path="/terms-and-conditions" element={<TermsAndConditions />} /> 
             </Routes>
         </Router>
     );

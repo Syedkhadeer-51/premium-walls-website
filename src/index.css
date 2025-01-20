@@ -766,3 +766,14 @@ body{
   border-radius: 72.727px;
   background: red;
 }
+.terms-container{
+        font-family: "DM Sans";
+}
+.terms-header{
+    color: var(--primary-black-313131, #313131);
+      /* font-family: "DM Sans"; */
+      font-size: 42px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%;
+}
