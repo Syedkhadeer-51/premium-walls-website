@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import addressLogo from "../src/assets/adress-logo.png"
 import callLogo from "../src/assets/Calling.png"
 import mailLogo from "../src/assets/mail-icon.png"
@@ -48,7 +49,9 @@ const Footer = () => {
                 <div className="col-6 quick-links">
                   <div className="quick-links-tile pb-3">Quick Links</div>
                   <div className="quick-links-text px-1 py-3">Book Now</div>
-                  <div className="quick-links-text px-1 py-3">Terms & Conditions</div>
+                  {/* <div className="quick-links-text px-1 py-3">Terms & Conditions</div>*/}
+                  
+              <Link to="/terms-and-conditions" >Terms & Conditions</Link>
                   <div className="quick-links-text px-1 py-3">Privacy Policy</div>
                   <div className="quick-links-text px-1 py-3">Order cancellation policy</div>
                   <div className="quick-links-text px-1 py-3">Contact Us</div>

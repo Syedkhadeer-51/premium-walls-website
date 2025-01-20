@@ -392,10 +392,7 @@ const ProductView = () => {
                                                 </button>
                                             </div>
                                         )}
-
-
                                     </div>
-
                                 </div>
                             </div>
                         ))}
