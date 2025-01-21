@@ -26,7 +26,7 @@ const Footer = () => {
                   </div>
                   <div className="p-2">
                     <div className="adress-contact-label">Phone Number</div>
-                    <div className="adress-contact-number">+91-8904949777</div>
+                    <div className="adress-contact-number">+91-8151815149</div>
                   </div>
                 </div>
                 <div className="social-links px-md-5 px-2 py-3 d-flex">
@@ -50,9 +50,14 @@ const Footer = () => {
                   <div className="quick-links-tile pb-3">Quick Links</div>
                   <div className="quick-links-text px-1 py-3">Book Now</div>
                   {/* <div className="quick-links-text px-1 py-3">Terms & Conditions</div>*/}
-                  
-              <Link to="/terms-and-conditions" >Terms & Conditions</Link>
-                  <div className="quick-links-text px-1 py-3">Privacy Policy</div>
+                      
+                  <Link to="/terms-and-conditions" >Terms & Conditions</Link>
+                  <div className='px-1 py-3'>
+                  <Link to="/privacy-policy" >Privacy Policy</Link>
+                  </div>
+               <Link to="/order-cancellation" >Order cancellation policy</Link>
+
+                  {/* <div className="quick-links-text px-1 py-3">Privacy Policy</div> */}
                   <div className="quick-links-text px-1 py-3">Order cancellation policy</div>
                   <div className="quick-links-text px-1 py-3">Contact Us</div>
                 </div>
