@@ -16,6 +16,8 @@ import Products from './Products';
 import ProductView from './ProductView';
 import OtherproductView from './OtherProductView';
 import TermsAndConditions from './TermsAndConditions';
+import PrivacyPolicy from './PrivacyPolicy';
+import OrderCancellation from './OrderCancellations';
 
 function Home() {
     return (
@@ -43,6 +45,9 @@ function App() {
                 <Route path="/product/:id" element={<ProductView />} />
                 <Route path="/OtherproductView" element={<OtherproductView />} />
                 <Route path="/terms-and-conditions" element={<TermsAndConditions />} /> 
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} /> 
+                <Route path="/order-cancellation" element={<OrderCancellation />} /> 
+
             </Routes>
         </Router>
     );
