@@ -1,5 +1,5 @@
 // src/components/ProductView.jsx
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useParams } from 'react-router-dom';
 import paintingServiceBanner from '../src/assets/painting-service-banner.png'
@@ -30,6 +30,8 @@ import checkMark from "../src/assets/checkmark.png"
 import cancelMark from "../src/assets/cancel.png"
 
 import Footer from './Footer';
+import { useCart } from './context/CartContext';
+import ProductModal from './components/ProductModal';
 
 const productData = [
     {
@@ -309,14 +311,52 @@ const productData = [
     },
 ];
 
+const DEFAULT_PRICES = {
+    "waterproofing": 1500,
+    "Texture Painting": 2000
+};
+
+const extractPrice = (header) => {
+    const matches = header.match(/\d+/);
+    if (matches && matches[0]) {
+        return parseInt(matches[0]);
+    }
+    return null;
+};
+
 const ProductView = () => {
     const { id } = useParams();
     const product = productData.find(p => p.id === parseInt(id));
+    const [selectedMiniCard, setSelectedMiniCard] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const { addToCart } = useCart();
 
     useEffect(() => {
         // Scroll to the top of the page when the component loads
         window.scrollTo(0, 0);
     }, []);
+
+    const handleBookClick = (miniCard) => {
+        setSelectedMiniCard(miniCard);
+        setIsModalOpen(true);
+    };
+
+    const getServicePrice = (miniCard) => {
+        const extractedPrice = extractPrice(miniCard.header);
+        if (extractedPrice) {
+            return extractedPrice;
+        }
+        // If no price in header, use default price based on service title
+        return DEFAULT_PRICES[miniCard.productTitle.toLowerCase()] || 2000; // fallback to 2000 if no default price found
+    };
+
+    const handleAddToCart = (cartItem) => {
+        addToCart({
+            ...cartItem,
+            productTitle: selectedMiniCard.productTitle,
+            basePrice: getServicePrice(selectedMiniCard),
+        });
+    };
 
     if (!product) {
         return <div>Product not found</div>;
@@ -352,7 +392,13 @@ const ProductView = () => {
                                         <div className="product-mini-card-rating"><span>
                                             <img className='product-mini-star-icon mx-2' src={starIcon} alt="star-icon" />
                                         </span>{miniCard.rating}</div>
-                                        <button type='button' className='product-mini-book-btn'>Book</button>
+                                        <button 
+                                            type='button' 
+                                            className='product-mini-book-btn'
+                                            onClick={() => handleBookClick(miniCard)}
+                                        >
+                                            Book
+                                        </button>
                                     </div>
                                     <div className="product-mini-card-header mx-3 pb-1 mb-1">
                                         {miniCard.header} <span className='mini-card-offer-txt'>{miniCard.offer}</span>
@@ -376,7 +422,7 @@ const ProductView = () => {
                                                     </ul>
                                                     <div className="included-features-details px-3">Excluded</div>
                                                     <ul className='extra-details-custom-list my-3'>
-                                                        {miniCard.extraDetailsExcluded.map((detail, idx) => (
+                                                        {miniCard.extraDetailsExcluded?.map((detail, idx) => (
                                                             <li key={idx} className='product-mini-card-description my-1'>
                                                                  <img src={cancelMark} alt="icon" className='detail-icon-excluded' /> {detail}
                                                             </li>
@@ -400,6 +446,20 @@ const ProductView = () => {
                 </div>
             </div>
             <Footer />
+
+            {selectedMiniCard && (
+                <ProductModal
+                    isOpen={isModalOpen}
+                    onClose={() => {
+                        setIsModalOpen(false);
+                        setSelectedMiniCard(null);
+                    }}
+                    product={product}
+                    onAddToCart={handleAddToCart}
+                    initialPrice={getServicePrice(selectedMiniCard)}
+                    serviceName={selectedMiniCard.productTitle}
+                />
+            )}
         </>
     );
 }

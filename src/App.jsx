@@ -1,6 +1,7 @@
-
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { CartProvider } from './context/CartContext';
+import CartSummary from './components/CartSummary';
 import OurServices from './Ourservices';
 import './index.css';
 import Trust from './Trust';
@@ -37,14 +38,17 @@ function Home() {
 
 function App() {
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/product/:id" element={<ProductView />} />
-                <Route path="/OtherproductView" element={<OtherproductView />} />
-                <Route path="/terms-and-conditions" element={<TermsAndConditions />} /> 
-            </Routes>
-        </Router>
+        <CartProvider>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/product/:id" element={<ProductView />} />
+                    <Route path="/OtherproductView" element={<OtherproductView />} />
+                    <Route path="/terms-and-conditions" element={<TermsAndConditions />} /> 
+                </Routes>
+                <CartSummary />
+            </Router>
+        </CartProvider>
     );
 }
 

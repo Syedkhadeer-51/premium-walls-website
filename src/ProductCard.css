@@ -1,0 +1,28 @@
+.book-now-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.book-now-button:hover {
+    opacity: 0.8;
+}
+
+.product-book-txt {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.product-arrow-icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.book-now-button:hover .product-arrow-icon {
+    transform: translateX(5px);
+} 
