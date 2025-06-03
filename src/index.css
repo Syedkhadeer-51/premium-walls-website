@@ -474,7 +474,7 @@ body{
   line-height: 150%; 
 }
 .product-book-txt{
-  color: #043275;
+  color: #043275 !important;
   font-family: "DM Sans";
   font-size: 14px;
   font-style: normal;

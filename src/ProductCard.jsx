@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import arrowRightIcon from './assets/arrow-right.png';
+import arrowRightIcon from '../src/assets/book-now-arrow-right.png';
 import './ProductCard.css';
 
 const ProductCard = ({ product }) => {
