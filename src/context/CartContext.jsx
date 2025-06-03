@@ -14,7 +14,11 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (item) => {
-    setCartItems((prevItems) => [...prevItems, item]);
+    setCartItems((prevItems) => [...prevItems, {
+      ...item,
+      bookingDate: item.bookingDate,
+      bookingTime: item.bookingTime
+    }]);
   };
 
   const removeFromCart = (itemId) => {
@@ -29,6 +33,10 @@ export const CartProvider = ({ children }) => {
     );
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
   const getCartTotal = () => {
     return cartItems.reduce((total, item) => total + item.total, 0);
   };
@@ -40,6 +48,7 @@ export const CartProvider = ({ children }) => {
         addToCart,
         removeFromCart,
         updateQuantity,
+        clearCart,
         getCartTotal,
       }}
     >
