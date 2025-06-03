@@ -311,9 +311,95 @@ const productData = [
     },
 ];
 
-const DEFAULT_PRICES = {
-    "waterproofing": 1500,
-    "Texture Painting": 2000
+const PRODUCT_PRICES = {
+    // Painting Service
+    1: {
+        "Interior": {
+            "1 BHK": 2999,
+            "2 BHK": 5999,
+            "3 BHK": 8999,
+            "4 BHK": 11999,
+            "5 BHK": 14999
+        },
+        "Exterior": {
+            "1 BHK": 3499,
+            "2 BHK": 6499,
+            "3 BHK": 9499,
+            "4 BHK": 12499,
+            "5 BHK": 15499
+        }
+    },
+    // Home Cleaning
+    2: {
+        "Silver": {
+            "1 BHK": 2748,
+            "2 BHK": 3299,
+            "3 BHK": 4299,
+            "4 BHK": 4999,
+            "5 BHK": 6899
+        },
+        "Gold": {
+            "1 BHK": 3999,
+            "2 BHK": 4599,
+            "3 BHK": 5399,
+            "4 BHK": 7099,
+            "5 BHK": 8399
+        }
+    },
+    // Kitchen Cleaning
+    3: {
+        "Vacant": {
+            "1 BHK": 999,
+            "2 BHK": 1499,
+            "3 BHK": 1999,
+            "4 BHK": 2499,
+            "5 BHK": 2999
+        },
+        "Non Vacant": {
+            "1 BHK": 1399,
+            "2 BHK": 1899,
+            "3 BHK": 2399,
+            "4 BHK": 2899,
+            "5 BHK": 3399
+        }
+    },
+    // Bathroom Cleaning
+    4: {
+        "Silver": {
+            "1 BHK": 2748,
+            "2 BHK": 3299,
+            "3 BHK": 4299,
+            "4 BHK": 4999,
+            "5 BHK": 6899
+        },
+        "Gold": {
+            "1 BHK": 3999,
+            "2 BHK": 4599,
+            "3 BHK": 5399,
+            "4 BHK": 7099,
+            "5 BHK": 8399
+        }
+    },
+    // Water Proofing
+    5: {
+        "Standard": {
+            "1 BHK": 1500,
+            "2 BHK": 2500,
+            "3 BHK": 3500,
+            "4 BHK": 4500,
+            "5 BHK": 5500
+        }
+    },
+    // Texture Painting
+    6: {
+        "Standard": {
+            "1 BHK": 2000,
+            "2 BHK": 3500,
+            "3 BHK": 5000,
+            "4 BHK": 6500,
+            "5 BHK": 8000
+        }
+    }
 };
 
 const extractPrice = (header) => {
@@ -341,20 +427,31 @@ const ProductView = () => {
         setIsModalOpen(true);
     };
 
+    const getServiceVariant = (miniCard) => {
+        if (miniCard.productTitle.includes('Silver')) return 'Silver';
+        if (miniCard.productTitle.includes('Gold')) return 'Gold';
+        if (miniCard.productTitle.includes('Interior')) return 'Interior';
+        if (miniCard.productTitle.includes('Exterior')) return 'Exterior';
+        if (miniCard.productTitle.includes('Vacant')) return 'Vacant';
+        if (miniCard.productTitle.includes('Non Vacant')) return 'Non Vacant';
+        return 'Standard';
+    };
+
     const getServicePrice = (miniCard) => {
-        const extractedPrice = extractPrice(miniCard.header);
-        if (extractedPrice) {
-            return extractedPrice;
-        }
-        // If no price in header, use default price based on service title
-        return DEFAULT_PRICES[miniCard.productTitle.toLowerCase()] || 2000; // fallback to 2000 if no default price found
+        const variant = getServiceVariant(miniCard);
+        return PRODUCT_PRICES[product.id]?.[variant]?.["1 BHK"] || 2000;
+    };
+
+    const getBHKPrices = () => {
+        const variant = getServiceVariant(selectedMiniCard);
+        return PRODUCT_PRICES[product.id]?.[variant] || {};
     };
 
     const handleAddToCart = (cartItem) => {
         addToCart({
             ...cartItem,
             productTitle: selectedMiniCard.productTitle,
-            basePrice: getServicePrice(selectedMiniCard),
+            basePrice: cartItem.basePrice
         });
     };
 
@@ -456,7 +553,7 @@ const ProductView = () => {
                     }}
                     product={product}
                     onAddToCart={handleAddToCart}
-                    initialPrice={getServicePrice(selectedMiniCard)}
+                    bhkPrices={getBHKPrices()}
                     serviceName={selectedMiniCard.productTitle}
                 />
             )}
