@@ -1,7 +1,6 @@
 // src/components/ProductView.jsx
 import React, { useEffect, useState } from 'react';
-
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import paintingServiceBanner from '../src/assets/painting-service-banner.png'
 import interiorPainting from "../src/assets/interior-painting.png"
 import exteriorPainting from "../src/assets/exterior-painting.png"
@@ -28,7 +27,7 @@ import texturePaintingIcon from "../src/assets/texturePaintingIcon.png"
 import starIcon from "../src/assets/starIcon.png"
 import checkMark from "../src/assets/checkmark.png"
 import cancelMark from "../src/assets/cancel.png"
-
+import '../src/components/ProductView.css'
 import Footer from './Footer';
 import { useCart } from './context/CartContext';
 import ProductModal from './components/ProductModal';
@@ -412,15 +411,19 @@ const extractPrice = (header) => {
 
 const ProductView = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const product = productData.find(p => p.id === parseInt(id));
     const [selectedMiniCard, setSelectedMiniCard] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const { addToCart } = useCart();
 
     useEffect(() => {
-        // Scroll to the top of the page when the component loads
         window.scrollTo(0, 0);
     }, []);
+
+    const handleBackClick = () => {
+        navigate('/');
+    };
 
     const handleBookClick = (miniCard) => {
         setSelectedMiniCard(miniCard);
@@ -462,6 +465,12 @@ const ProductView = () => {
     return (
         <>
             <div className='product-view-container p-5'>
+                <button 
+                    className="back-to-home-button" 
+                    onClick={handleBackClick}
+                >
+                    ← Back to Home
+                </button>
                 <div className="row d-flex justify-content-center pt-5">
                     <div className="col-md-4 col-12">
                         <div className="product-view-header">{product.title}</div>

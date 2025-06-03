@@ -1,0 +1,20 @@
+.back-to-home-button {
+    background: #043275;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    font-family: "DM Sans", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.back-to-home-button:hover {
+    color: #fff;
+} 
