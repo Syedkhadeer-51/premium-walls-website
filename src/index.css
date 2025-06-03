@@ -777,3 +777,12 @@ body{
       font-weight: 700;
       line-height: 150%;
 }
+.date-section input[type=date] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #043275;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #FFFFFF;
+  background: lightgray;
+}
