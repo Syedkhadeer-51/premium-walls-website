@@ -41,12 +41,48 @@ const ProductModal = ({ isOpen, onClose, product, onAddToCart, bhkPrices, servic
   };
 
   const getPrice = (bhkType) => {
-    return bhkPrices[bhkType] || 0;
+    const priceInfo = bhkPrices[bhkType] || { basePrice: 0, tax: 0, consultationFee: 0 };
+    return priceInfo.basePrice;
+  };
+
+  const getTax = (bhkType) => {
+    const priceInfo = bhkPrices[bhkType] || { basePrice: 0, tax: 0, consultationFee: 0 };
+    return priceInfo.tax || 0;
+  };
+
+  const getConsultationFee = (bhkType) => {
+    const priceInfo = bhkPrices[bhkType] || { basePrice: 0, tax: 0, consultationFee: 0 };
+    return priceInfo.consultationFee || 0;
+  };
+
+  const isConsultationOnly = (bhkType) => {
+    const basePrice = getPrice(bhkType);
+    const tax = getTax(bhkType);
+    const consultationFee = getConsultationFee(bhkType);
+    return basePrice === 0 && tax === 0 && consultationFee > 0;
   };
 
   const calculateTotal = () => {
     if (!selectedBHK || quantity === 0) return 0;
+    const basePrice = getPrice(selectedBHK.type);
+    const tax = getTax(selectedBHK.type);
+    const consultationFee = getConsultationFee(selectedBHK.type);
+    return (basePrice + tax + consultationFee) * quantity;
+  };
+
+  const calculateSubtotal = () => {
+    if (!selectedBHK || quantity === 0) return 0;
     return getPrice(selectedBHK.type) * quantity;
+  };
+
+  const calculateTaxTotal = () => {
+    if (!selectedBHK || quantity === 0) return 0;
+    return getTax(selectedBHK.type) * quantity;
+  };
+
+  const calculateConsultationTotal = () => {
+    if (!selectedBHK || quantity === 0) return 0;
+    return getConsultationFee(selectedBHK.type) * quantity;
   };
 
   const handleProceedToDateTime = () => {
@@ -71,7 +107,12 @@ const ProductModal = ({ isOpen, onClose, product, onAddToCart, bhkPrices, servic
         serviceName: serviceName,
         bhkType: selectedBHK.type,
         basePrice: getPrice(selectedBHK.type),
+        tax: getTax(selectedBHK.type),
+        consultationFee: getConsultationFee(selectedBHK.type),
         quantity,
+        subtotal: calculateSubtotal(),
+        taxTotal: calculateTaxTotal(),
+        consultationTotal: calculateConsultationTotal(),
         total: calculateTotal(),
         bookingDate: dateTimeDetails.date,
         bookingTime: dateTimeDetails.timeSlot
@@ -113,7 +154,17 @@ const ProductModal = ({ isOpen, onClose, product, onAddToCart, bhkPrices, servic
                         <span className='mx-2'>4.2</span>
                       </div>
                       <div className='d-flex justify-content-start align-items-center'>
-                        <div className='bhk-price'>₹{getPrice(bhk.type)}</div>
+                        <div className='bhk-price'>
+                          {isConsultationOnly(bhk.type) ? (
+                            <span>₹{getConsultationFee(bhk.type)} consultation</span>
+                          ) : (
+                            <>
+                              ₹{getPrice(bhk.type)}
+                              {getTax(bhk.type) > 0 && <span className="tax-amount"> (+₹{getTax(bhk.type)} tax)</span>}
+                              {getConsultationFee(bhk.type) > 0 && <span className="consultation-fee"> (+₹{getConsultationFee(bhk.type)} consultation)</span>}
+                            </>
+                          )}
+                        </div>
                         <ul className='m-0'>
                           <li className='p-0 bhk-time'>30mins</li>
                         </ul>
@@ -149,7 +200,16 @@ const ProductModal = ({ isOpen, onClose, product, onAddToCart, bhkPrices, servic
         {currentStep === STEPS.SELECT_BHK && quantity > 0 && (
           <div className="modal-footer">
             <div className="total-amount">
-              Total: ₹{calculateTotal()}
+              {isConsultationOnly(selectedBHK.type) ? (
+                <div className="consultation">Consultation: ₹{calculateConsultationTotal()}</div>
+              ) : (
+                <>
+                  <div className="subtotal">Subtotal: ₹{calculateSubtotal()}</div>
+                  {calculateTaxTotal() > 0 && <div className="tax">Tax: ₹{calculateTaxTotal()}</div>}
+                  {calculateConsultationTotal() > 0 && <div className="consultation">Consultation: ₹{calculateConsultationTotal()}</div>}
+                </>
+              )}
+              <div className="total">Total: ₹{calculateTotal()}</div>
             </div>
             <button className="confirm-button" onClick={handleProceedToDateTime}>
               Proceed
