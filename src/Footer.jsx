@@ -26,7 +26,9 @@ const Footer = () => {
                   </div>
                   <div className="p-2">
                     <div className="adress-contact-label">Phone Number</div>
-                    <div className="adress-contact-number">+91-8904949777</div>
+                    <div className="adress-contact-number">+91-8151815149</div>
+                    <div className="adress-contact-number">+91-9742974269</div>
+
                   </div>
                 </div>
                 <div className="social-links px-md-5 px-2 py-3 d-flex">

@@ -84,7 +84,7 @@ const productData = [
                 productTitle: "Furnished apartment ( Silver )",
                 productImg: furnishedApartmentSilverIcon,
                 rating: 4.3,
-                header: "Starts at ₹2099",
+                header: "Starts at ₹2399",
                 features: [
                     "Wiping & mopping of floor & balcony, bathroom deep cleaning",
                     "Dry dusting of ceiling, walls & windows, dry vacuuming of furniture"
@@ -105,7 +105,7 @@ const productData = [
                 productTitle: "Furnished apartment ( Gold )",
                 productImg: furnishedApartmentGoldIcon,
                 rating: 4.3,
-                header: "Starts at ₹3299",
+                header: "Starts at ₹3999",
                 features: [
                     "Deep cleaning of bedroom, living room, bathroom, kitchen & balcony",
                     "Floor deep cleaning by single disc machine, vacuuming of sofa & carpets"
@@ -126,7 +126,7 @@ const productData = [
                 productTitle: "UnFurnished apartment ( Silver )",
                 productImg: unfurnishedApartmentSilverIcon,
                 rating: 4.3,
-                header: "Starts at ₹2549",
+                header: "Starts at ₹2399",
                 features: [
                     "Wiping & mopping of floor & balcony, bathroom deep cleaning",
                     "Dry dusting of ceiling, walls & windows"
@@ -314,89 +314,103 @@ const PRODUCT_PRICES = {
     // Painting Service
     1: {
         "Interior": {
-            "1 BHK": 2999,
-            "2 BHK": 5999,
-            "3 BHK": 8999,
-            "4 BHK": 11999,
-            "5 BHK": 14999
+            "1 BHK": { basePrice: 0, tax: 0, consultationFee: 50 },
+            "2 BHK": { basePrice: 0, tax: 0, consultationFee: 50 },
+            "3 BHK": { basePrice: 0, tax: 0, consultationFee: 50 },
+            "4 BHK": { basePrice: 0, tax: 0, consultationFee: 50 },
+            "5 BHK": { basePrice: 0, tax: 0, consultationFee: 50 }
         },
         "Exterior": {
-            "1 BHK": 3499,
-            "2 BHK": 6499,
-            "3 BHK": 9499,
-            "4 BHK": 12499,
-            "5 BHK": 15499
+            "1 BHK": { basePrice: 0, tax: 0, consultationFee: 50 },
+            "2 BHK": { basePrice: 0, tax: 0, consultationFee: 50 },
+            "3 BHK": { basePrice: 0, tax: 0, consultationFee: 50 },
+            "4 BHK": { basePrice: 0, tax: 0, consultationFee: 50 },
+            "5 BHK": { basePrice: 0, tax: 0, consultationFee: 50 }
         }
     },
     // Home Cleaning
     2: {
-        "Silver": {
-            "1 BHK": 2748,
-            "2 BHK": 3299,
-            "3 BHK": 4299,
-            "4 BHK": 4999,
-            "5 BHK": 6899
+        "Furnished Silver": {
+            "1 BHK": { basePrice: 2399, tax: 199 },
+            "2 BHK": { basePrice: 2799, tax: 299 },
+            "3 BHK": { basePrice: 3599, tax: 399 },
+            "4 BHK": { basePrice: 4399, tax: 499 },
+            "5 BHK": { basePrice: 4699, tax: 499 }
         },
-        "Gold": {
-            "1 BHK": 3999,
-            "2 BHK": 4599,
-            "3 BHK": 5399,
-            "4 BHK": 7099,
-            "5 BHK": 8399
+        "Furnished Gold": {
+            "1 BHK": { basePrice: 3999, tax: 399 },
+            "2 BHK": { basePrice: 3999, tax: 499 },
+            "3 BHK": { basePrice: 4599, tax: 499 },
+            "4 BHK": { basePrice: 6399, tax: 599 },
+            "5 BHK": { basePrice: 7399, tax: 599 }
+        },
+        "Unfurnished Silver": {
+            "1 BHK": { basePrice: 1999, tax: 199 },
+            "2 BHK": { basePrice: 2299, tax: 299 },
+            "3 BHK": { basePrice: 2899, tax: 399 },
+            "4 BHK": { basePrice: 3899, tax: 399 },
+            "5 BHK": { basePrice: 4399, tax: 499 }
+        },
+        "Unfurnished Gold": {
+            "1 BHK": { basePrice: 3199, tax: 299 },
+            "2 BHK": { basePrice: 3698, tax: 399 },
+            "3 BHK": { basePrice: 4599, tax: 499 },
+            "4 BHK": { basePrice: 5999, tax: 599 },
+            "5 BHK": { basePrice: 6799, tax: 599 }
         }
     },
     // Kitchen Cleaning
     3: {
         "Vacant": {
-            "1 BHK": 999,
-            "2 BHK": 1499,
-            "3 BHK": 1999,
-            "4 BHK": 2499,
-            "5 BHK": 2999
+            "1 BHK": { basePrice: 999, tax: 99 },
+            "2 BHK": { basePrice: 1499, tax: 149 },
+            "3 BHK": { basePrice: 1999, tax: 199 },
+            "4 BHK": { basePrice: 2499, tax: 249 },
+            "5 BHK": { basePrice: 2999, tax: 299 }
         },
         "Non Vacant": {
-            "1 BHK": 1399,
-            "2 BHK": 1899,
-            "3 BHK": 2399,
-            "4 BHK": 2899,
-            "5 BHK": 3399
+            "1 BHK": { basePrice: 1399, tax: 139 },
+            "2 BHK": { basePrice: 1899, tax: 189 },
+            "3 BHK": { basePrice: 2399, tax: 239 },
+            "4 BHK": { basePrice: 2899, tax: 289 },
+            "5 BHK": { basePrice: 3399, tax: 339}
         }
     },
     // Bathroom Cleaning
     4: {
         "Silver": {
-            "1 BHK": 2748,
-            "2 BHK": 3299,
-            "3 BHK": 4299,
-            "4 BHK": 4999,
-            "5 BHK": 6899
+            "1 BHK": { basePrice: 309, tax: 50 },
+            "2 BHK": { basePrice: 599, tax: 70 },
+            "3 BHK": { basePrice: 879, tax: 99 },
+            "4 BHK": { basePrice: 999, tax: 99 },
+            "5 BHK": { basePrice: 1199, tax: 149 }
         },
         "Gold": {
-            "1 BHK": 3999,
-            "2 BHK": 4599,
-            "3 BHK": 5399,
-            "4 BHK": 7099,
-            "5 BHK": 8399
+            "1 BHK": { basePrice: 409, tax: 50 },
+            "2 BHK": { basePrice: 709, tax: 149 },
+            "3 BHK": { basePrice: 1099, tax: 149 },
+            "4 BHK": { basePrice: 1259, tax: 198 },
+            "5 BHK": { basePrice: 1599, tax: 249 }
         }
     },
     // Water Proofing
     5: {
         "Standard": {
-            "1 BHK": 1500,
-            "2 BHK": 2500,
-            "3 BHK": 3500,
-            "4 BHK": 4500,
-            "5 BHK": 5500
+            "1 BHK": { basePrice: 0, tax: 0, consultationFee: 50 },
+            "2 BHK": { basePrice: 0, tax: 0, consultationFee: 50 },
+            "3 BHK": { basePrice: 0, tax: 0, consultationFee: 50 },
+            "4 BHK": { basePrice: 0, tax: 0, consultationFee: 50 },
+            "5 BHK": { basePrice: 0, tax: 0, consultationFee: 50 }
         }
     },
     // Texture Painting
     6: {
         "Standard": {
-            "1 BHK": 2000,
-            "2 BHK": 3500,
-            "3 BHK": 5000,
-            "4 BHK": 6500,
-            "5 BHK": 8000
+            "1 BHK": { basePrice: 0, tax: 0, consultationFee: 50 },
+            "2 BHK": { basePrice: 0, tax: 0, consultationFee: 50 },
+            "3 BHK": { basePrice: 0, tax: 0, consultationFee: 50 },
+            "4 BHK": { basePrice: 0, tax: 0, consultationFee: 50 },
+            "5 BHK": { basePrice: 0, tax: 0, consultationFee: 50 }
         }
     }
 };
@@ -431,8 +445,10 @@ const ProductView = () => {
     };
 
     const getServiceVariant = (miniCard) => {
-        if (miniCard.productTitle.includes('Silver')) return 'Silver';
-        if (miniCard.productTitle.includes('Gold')) return 'Gold';
+        if (miniCard.productTitle.includes('Furnished') && miniCard.productTitle.includes('Silver')) return 'Furnished Silver';
+        if (miniCard.productTitle.includes('Furnished') && miniCard.productTitle.includes('Gold')) return 'Furnished Gold';
+        if (miniCard.productTitle.includes('UnFurnished') && miniCard.productTitle.includes('Silver')) return 'Unfurnished Silver';
+        if (miniCard.productTitle.includes('UnFurnished') && miniCard.productTitle.includes('Gold')) return 'Unfurnished Gold';
         if (miniCard.productTitle.includes('Interior')) return 'Interior';
         if (miniCard.productTitle.includes('Exterior')) return 'Exterior';
         if (miniCard.productTitle.includes('Vacant')) return 'Vacant';

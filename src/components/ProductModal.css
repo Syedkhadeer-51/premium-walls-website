@@ -180,9 +180,40 @@
   border-top: 1px solid #ddd;
 }
 
+.tax-amount {
+  color: #666;
+  font-size: 0.9em;
+  margin-left: 5px;
+}
+
+.consultation-fee {
+  color: #666;
+  font-size: 0.9em;
+  margin-left: 5px;
+}
+
 .total-amount {
-  font-size: 1.2rem;
+  width: 100%;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+}
+
+.total-amount .subtotal,
+.total-amount .tax,
+.total-amount .consultation,
+.total-amount .total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.total-amount .total {
   font-weight: bold;
+  font-size: 1.1em;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #dee2e6;
 }
 
 .confirm-button {
