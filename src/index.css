@@ -398,23 +398,57 @@ body{
 
 
 .login-btn{
-  border-radius: 16px;
+  width: 148px;
+  padding: 16px 32px;
+  border-radius: 8px;
   background: #043275;
   box-shadow: 0px 34px 34px 0px rgba(19, 83, 254, 0.05);
-  width: 148px;
-  padding: 12px 32px;
-  color: var(--white-ffffff, #FFF);
-  text-align: center;
-  font-family: "DM Sans";
-  font-size: 16px;
-  font-style: normal;
+  color: #FFFFFF;
+  border: none;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 150%; 
+  transition: background-color 0.3s ease;
 }
+
 .login-btn:hover{
-  color: #043275;
-  background: transparent;
+  background: #032255;
+  color: #FFFFFF;
 }
+
+.cart-btn {
+  width: 120px;
+  padding: 16px 24px;
+  border-radius: 8px;
+  background: #f8f9fa;
+  border: 1px solid #e3e3e3;
+  color: #043275;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.cart-btn:hover {
+  background: #e7f1ff;
+  border-color: #043275;
+  color: #043275;
+}
+
+.cart-btn .badge {
+  font-size: 10px;
+  padding: 4px 6px;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .nav-link{
   color: var(--primary-black-313131, #313131);  
   font-family: "DM Sans";
