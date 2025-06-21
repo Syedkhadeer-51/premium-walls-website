@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import BookingDateTime from './BookingDateTime';
 import './ProductModal.css';
 import starIcon from "../assets/starIcon.png"
@@ -18,6 +19,7 @@ const STEPS = {
 };
 
 const ProductModal = ({ isOpen, onClose, product, onAddToCart, bhkPrices, serviceName }) => {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(STEPS.SELECT_BHK);
   const [selectedBHK, setSelectedBHK] = useState(null);
   const [quantity, setQuantity] = useState(0);
@@ -122,6 +124,7 @@ const ProductModal = ({ isOpen, onClose, product, onAddToCart, bhkPrices, servic
       setSelectedBHK(null);
       setBookingDetails(null);
       setCurrentStep(STEPS.SELECT_BHK);
+      navigate('/cart');
     }
   };
 
