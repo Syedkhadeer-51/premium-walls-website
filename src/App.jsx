@@ -17,6 +17,7 @@ import ProductView from './ProductView';
 import OtherproductView from './OtherProductView';
 import TermsAndConditions from './TermsAndConditions';
 import Cart from './pages/Cart';
+import LoginPage from './pages/LoginPage';
 
 function Home() {
     return (
@@ -46,6 +47,7 @@ function App() {
                     <Route path="/OtherproductView" element={<OtherproductView />} />
                     <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
                     <Route path="/cart" element={<Cart />} />
+                    <Route path="/login" element={<LoginPage />} />
                 </Routes>
             </Router>
         </CartProvider>
