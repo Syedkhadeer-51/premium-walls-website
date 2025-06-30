@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useCart } from './context/CartContext';
 import logoImage from '../src/assets/navbar-logo.png';
+import LoginModal from './components/LoginModal';
 
 const Navbar = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const { cartItems } = useCart();
+    const [showLoginModal, setShowLoginModal] = useState(false);
 
     const handleCartClick = () => {
         navigate('/cart');
     };
 
     const handleLoginClick = () => {
-        // TODO: Implement login functionality
-        console.log('Login clicked');
+        navigate('/login');
     };
 
     const handleHomeClick = () => {
@@ -115,6 +116,14 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
+            {showLoginModal && (
+                <LoginModal
+                    onLogin={(user) => {
+                        // You can store user in context or state here if needed
+                        setShowLoginModal(false);
+                    }}
+                />
+            )}
         </nav>
     );
 }
