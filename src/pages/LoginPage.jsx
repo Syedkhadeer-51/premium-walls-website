@@ -1,7 +1,11 @@
+import { useNavigate } from 'react-router-dom';
+import { useUser } from '../context/UserContext';
 import LoginModal from '../components/LoginModal';
 
 export default function LoginPage() {
-  // You can use a wrapper div for centering and background
+  const navigate = useNavigate();
+  const { setUser } = useUser();
+
   return (
     <div style={{
       minHeight: '100vh',
@@ -18,7 +22,10 @@ export default function LoginPage() {
         minWidth: 350,
         maxWidth: '90vw'
       }}>
-     <LoginModal onLogin={() => navigate('/')} />
+        <LoginModal onLogin={(user) => {
+          setUser(user);
+          navigate('/cart');
+        }} />
       </div>
     </div>
   );

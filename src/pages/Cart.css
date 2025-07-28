@@ -372,3 +372,47 @@
         padding: 15px;
     }
 } 
+
+
+.form-group {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 15px;
+    color: #273043;
+    font-weight: 500;
+    margin-bottom: 6px;
+    font-family: "DM Sans", sans-serif;
+}
+
+.form-group .address-hint {
+    font-size: 12px;
+    color: #e14a03;
+    margin-top: 3px;
+    font-family: "DM Sans", sans-serif;
+}
+
+.form-input {
+    background: #fff;
+    color: #181818;
+    border: 1px solid #bbb;
+    padding: 10px 12px;
+    font-size: 15px;
+    border-radius: 6px;
+    outline: none;
+    margin-bottom: 1px;
+    width: 100%;
+    font-family: "DM Sans", sans-serif;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus {
+    border-color: #043275;
+}
+
+.modal-content input::placeholder {
+    color: #999;
+}
