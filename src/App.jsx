@@ -18,6 +18,7 @@ import OtherproductView from './OtherProductView';
 import TermsAndConditions from './TermsAndConditions';
 import Cart from './pages/Cart';
 import LoginPage from './pages/LoginPage';
+import { UserProvider } from  './context/UserContext'
 
 function Home() {
     return (
@@ -39,18 +40,20 @@ function Home() {
 
 function App() {
     return (
-        <CartProvider>
-            <Router>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/product/:id" element={<ProductView />} />
-                    <Route path="/OtherproductView" element={<OtherproductView />} />
-                    <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-                    <Route path="/cart" element={<Cart />} />
-                    <Route path="/login" element={<LoginPage />} />
-                </Routes>
-            </Router>
-        </CartProvider>
+        <UserProvider>
+            <CartProvider>
+                <Router>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/product/:id" element={<ProductView />} />
+                        <Route path="/OtherproductView" element={<OtherproductView />} />
+                        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+                        <Route path="/cart" element={<Cart />} />
+                        <Route path="/login" element={<LoginPage />} />
+                    </Routes>
+                </Router>
+            </CartProvider>
+        </UserProvider>
     );
 }
 
