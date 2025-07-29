@@ -540,8 +540,8 @@ body{
   line-height: normal;
 }
 .product-view-banner{
-  width: 783px;
-  height: 451px;
+  /* width: 783px; */
+  /* height: 451px; */
   border-radius: 20px;
 }
 .product-view-mini-container{
@@ -573,10 +573,16 @@ body{
   border: 1px solid #E3E3E3;
   background: var(--White-MHS, #FFF);
 }
-.product-mini-card-img{
+
+@media (max-width: 500px) {
+  .product-mini-card-container {
+    width: 250px;
+  }
+}
+/* .product-mini-card-img{
   width: 454px;
   height: 145px;
-}
+} */
 .product-mini-card-rating{
  color: var(--Sub-heading-grey-text-MHS, #5F5F5F);
   font-family: "DM Sans";

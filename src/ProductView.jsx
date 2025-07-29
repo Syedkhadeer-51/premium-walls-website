@@ -502,13 +502,13 @@ const ProductView = () => {
                         )}
                     </div>
                     <div className="col-md-8 col-12">
-                        <img className="product-view-banner" src={product.productBanner} alt={product.alt} />
+                        <img className="product-view-banner img-fluid" src={product.productBanner} alt={product.alt} />
                         {product.miniCards?.map((miniCard, index) => (
                             <div key={index}>
                                 <div className="product-view-sub-header pb-3">{miniCard.productTitle}</div>
                                 <div className="product-mini-card-container">
                                     <div className='text-center'>
-                                        <img className="product-mini-card-img" src={miniCard.productImg} alt="product-mini-card-img" />
+                                        <img className="product-mini-card-img img-fluid" src={miniCard.productImg} alt="product-mini-card-img" />
                                     </div>
                                     <div className="d-flex justify-content-between align-items-center px-3 py-2">
                                         <div className="product-mini-card-rating"><span>
