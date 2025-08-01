@@ -12,41 +12,54 @@ export default function LoginModal({ onLogin }) {
     e.preventDefault();
     setErrorMsg('');
 
-    // Try to sign in
+    const lowerEmail = email.trim().toLowerCase();
+
+    // ✅ 1️⃣ Check if profile exists by email
+    const { data: existingProfile, error: profileLookupError } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('email', lowerEmail)
+      .maybeSingle();
+
+    if (profileLookupError) {
+      setErrorMsg('Profile lookup failed: ' + profileLookupError.message);
+      return;
+    }
+
+    // ✅ 2️⃣ Try to sign in first
     const { data: loginData, error: loginError } = await supabase.auth.signInWithPassword({
-      email,
+      email: lowerEmail,
       password,
     });
 
-    if (!loginError && loginData?.user) {
-      // Logged in — check if profile exists
-      const { data: profileData, error: profileError } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', loginData.user.id)
-        .single();
-
-      if (!profileData) {
-        // No profile — insert new
-        const { error: insertError } = await supabase.from('profiles').insert([
+    if (loginData?.user && !loginError) {
+      // ✅ Logged in
+      if (!existingProfile) {
+        // No profile yet → insert
+        const { error: insertProfileError } = await supabase.from('profiles').insert([
           {
             id: loginData.user.id,
             full_name: fullName,
             address,
+            email: lowerEmail,
           },
         ]);
-        if (insertError) {
-          setErrorMsg(insertError.message);
+        if (insertProfileError) {
+          setErrorMsg('Failed to insert profile: ' + insertProfileError.message);
           return;
         }
-      } else if (!profileData.full_name || !profileData.address) {
-        // Update if missing fields
-        const { error: updateError } = await supabase
+      } else if (!existingProfile.full_name || !existingProfile.address) {
+        // Profile exists but incomplete → update
+        const { error: updateProfileError } = await supabase
           .from('profiles')
-          .update({ full_name: fullName, address })
+          .update({
+            full_name: fullName,
+            address,
+          })
           .eq('id', loginData.user.id);
-        if (updateError) {
-          setErrorMsg(updateError.message);
+
+        if (updateProfileError) {
+          setErrorMsg('Failed to update profile: ' + updateProfileError.message);
           return;
         }
       }
@@ -55,37 +68,45 @@ export default function LoginModal({ onLogin }) {
       return;
     }
 
-    // If login fails, try sign up
-    if (loginError && loginError.message.includes('Invalid login credentials')) {
-      const { data: signupData, error: signupError } = await supabase.auth.signUp({
-        email,
-        password,
-      });
-
-      if (signupError) {
-        setErrorMsg(signupError.message);
+    // ✅ 3️⃣ If login failed…
+    if (loginError) {
+      if (existingProfile) {
+        setErrorMsg('Incorrect password. Please try again.');
         return;
       }
 
-      // Insert profile
-      const userId = signupData?.user?.id;
-      if (userId) {
-        const { error: profileError } = await supabase.from('profiles').insert([
+      // No existing profile → create new user
+      const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
+        email: lowerEmail,
+        password,
+      });
+
+      if (signUpError) {
+        if (signUpError.message.toLowerCase().includes('rate limit')) {
+          setErrorMsg('Too many signup attempts. Please wait a few minutes.');
+        } else {
+          setErrorMsg(signUpError.message);
+        }
+        return;
+      }
+
+      const newUserId = signUpData?.user?.id;
+      if (newUserId) {
+        const { error: insertProfileError } = await supabase.from('profiles').insert([
           {
-            id: userId,
+            id: newUserId,
             full_name: fullName,
             address,
+            email: lowerEmail,
           },
         ]);
-        if (profileError) {
-          setErrorMsg(profileError.message);
+        if (insertProfileError) {
+          setErrorMsg('Failed to create profile: ' + insertProfileError.message);
           return;
         }
       }
 
-      onLogin(signupData.user);
-    } else {
-      setErrorMsg(loginError?.message || 'Something went wrong');
+      onLogin(signUpData.user);
     }
   };
 

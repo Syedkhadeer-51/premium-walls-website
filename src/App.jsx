@@ -18,6 +18,7 @@ import OtherproductView from './OtherProductView';
 import TermsAndConditions from './TermsAndConditions';
 import Cart from './pages/Cart';
 import LoginPage from './pages/LoginPage';
+import { UserProvider } from  './context/UserContext'
 
 // Screen Size Restriction Component
 function ScreenSizeRestriction({ children }) {
